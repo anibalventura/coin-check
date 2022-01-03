@@ -49,6 +49,12 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGK-aA-mIc" userLabel="Coin Label">
+                                                        <rect key="frame" x="284.66666666666669" y="25" width="0.0" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fu-bE-BH7">
                                                         <rect key="frame" x="289.66666666666669" y="25" width="50.333333333333314" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -76,7 +82,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last updated: 01/01/9999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtV-Xi-OE3" userLabel="Time">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last updated: ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtV-Xi-OE3" userLabel="Time">
                                         <rect key="frame" x="0.0" y="170" width="390" height="18"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                         <color key="textColor" name="Title Color"/>
@@ -89,26 +95,56 @@
                                     <constraint firstAttribute="trailing" secondItem="dtV-Xi-OE3" secondAttribute="trailing" id="PO9-xH-pUI"/>
                                 </constraints>
                             </stackView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOW-fp-hXg">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LVT-VH-28v">
                                 <rect key="frame" x="0.0" y="594" width="390" height="216"/>
-                            </pickerView>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1mA-eB-pd6" userLabel="Coin Picker">
+                                        <rect key="frame" x="0.0" y="0.0" width="195" height="216"/>
+                                    </pickerView>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOW-fp-hXg">
+                                        <rect key="frame" x="195" y="0.0" width="195" height="216"/>
+                                    </pickerView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HiS-zx-Kdu">
+                                <rect key="frame" x="0.0" y="564" width="390" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ek-ib-MYU">
+                                        <rect key="frame" x="0.0" y="0.0" width="195" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                                        <color key="textColor" name="Title Color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDZ-Tx-ZgK">
+                                        <rect key="frame" x="195" y="0.0" width="195" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                                        <color key="textColor" name="Title Color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="Background Color"/>
                         <constraints>
+                            <constraint firstItem="LVT-VH-28v" firstAttribute="top" secondItem="HiS-zx-Kdu" secondAttribute="bottom" id="0ad-nV-d3Y"/>
+                            <constraint firstItem="HiS-zx-Kdu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3Z6-7k-Gyu"/>
                             <constraint firstItem="22X-AU-pit" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="DEv-mR-jdV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HiS-zx-Kdu" secondAttribute="trailing" id="Iy9-mf-wik"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="22X-AU-pit" secondAttribute="trailing" id="NZ5-OQ-C7S"/>
-                            <constraint firstItem="MOW-fp-hXg" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="VdG-ny-d0L"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LVT-VH-28v" secondAttribute="bottom" id="P7R-5j-I2E"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LVT-VH-28v" secondAttribute="trailing" id="cju-M3-DYy"/>
+                            <constraint firstItem="LVT-VH-28v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jOF-KE-m5Y"/>
                             <constraint firstItem="22X-AU-pit" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="m5V-gq-yLu"/>
-                            <constraint firstItem="MOW-fp-hXg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rj1-sb-PEH"/>
-                            <constraint firstItem="MOW-fp-hXg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sZL-9b-o3c"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bitcoinLabel" destination="HTJ-9p-5Tu" id="2zO-am-8WD"/>
+                        <outlet property="coinLabel" destination="TGK-aA-mIc" id="F4u-CS-SYt"/>
+                        <outlet property="coinPicker" destination="1mA-eB-pd6" id="nLp-r6-zuf"/>
                         <outlet property="currencyLabel" destination="7Fu-bE-BH7" id="slJ-eX-FsQ"/>
                         <outlet property="currencyPicker" destination="MOW-fp-hXg" id="7Lp-DU-ap5"/>
                         <outlet property="lastUpdateLabel" destination="dtV-Xi-OE3" id="BiZ-yJ-8F7"/>
+                        <outlet property="priceLabel" destination="HTJ-9p-5Tu" id="2zO-am-8WD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -10,14 +10,18 @@ import UIKit
 class CoinViewController: UIViewController {
     private var coinController: CoinController = CoinController()
     
-    @IBOutlet weak var bitcoinLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var coinLabel: UILabel!
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var lastUpdateLabel: UILabel!
+    @IBOutlet weak var coinPicker: UIPickerView!
     @IBOutlet weak var currencyPicker: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        coinPicker.dataSource = self
+        coinPicker.delegate = self
         currencyPicker.dataSource = self
         currencyPicker.delegate = self
         coinController.delegate = self
@@ -33,18 +37,40 @@ extension CoinViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         // How many rows this picker should have.
-        return self.coinController.currencyArray.count
+        switch pickerView {
+        case self.coinPicker:
+            return self.coinController.coins.count
+        case self.currencyPicker:
+            return self.coinController.currencies.count
+        default:
+            return 0
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.coinController.currencyArray[row] // Title for the given row.
+        // Title for the given row.
+        switch pickerView {
+        case self.coinPicker:
+            return self.coinController.coins[row]
+        case self.currencyPicker:
+            return self.coinController.currencies[row]
+        default:
+            return ""
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let currency = self.coinController.currencyArray[row]
+        // Set label to picked item.
+        if pickerView == self.coinPicker {
+            self.coinLabel.text = self.coinController.coins[row]
+        } else if pickerView == self.currencyPicker {
+            self.currencyLabel.text = self.coinController.currencies[row]
+        }
         
-        self.currencyLabel.text = currency
-        self.coinController.fetchBitCoinPrice(for: currency)
+        // Fetch price of selected items.
+        let coin = self.coinLabel.text!
+        let currency = self.currencyLabel.text!
+        self.coinController.fetchPrice(for: coin, in: currency)
     }
 }
 
@@ -52,8 +78,9 @@ extension CoinViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 
 extension CoinViewController: CoinControllerDelegate {
     func didUpdateCoin(_ coin: Coin) {
+        // Update UI.
         DispatchQueue.main.async {
-            self.bitcoinLabel.text = coin.rateFormat
+            self.priceLabel.text = coin.rateFormat
             self.lastUpdateLabel.text = "Last updated: \(coin.timeFormat)"
         }
     }
