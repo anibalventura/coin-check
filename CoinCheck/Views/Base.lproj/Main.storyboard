@@ -52,7 +52,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fu-bE-BH7">
                                                         <rect key="frame" x="289.66666666666669" y="25" width="50.333333333333314" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                        <color key="textColor" name="Title Color"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -80,7 +80,6 @@
                             </stackView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOW-fp-hXg">
                                 <rect key="frame" x="0.0" y="594" width="390" height="216"/>
-                                <color key="tintColor" name="Title Color"/>
                             </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -95,8 +94,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bitcoinCurrencyLabel" destination="7Fu-bE-BH7" id="slJ-eX-FsQ"/>
                         <outlet property="bitcoinLabel" destination="HTJ-9p-5Tu" id="2zO-am-8WD"/>
-                        <outlet property="currencyLabel" destination="7Fu-bE-BH7" id="slJ-eX-FsQ"/>
                         <outlet property="currencyPicker" destination="MOW-fp-hXg" id="7Lp-DU-ap5"/>
                     </connections>
                 </viewController>

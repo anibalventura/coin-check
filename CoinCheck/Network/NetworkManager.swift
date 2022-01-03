@@ -10,7 +10,7 @@ import Foundation
 struct NetworkManager {
     
     // Fetch data from a string URL and parse it to a generic T model.
-    func fetchData<T: Decodable>(from urlString: String, completion: @escaping (Result<T,Error>) -> Void) {
+    func fetchData<T: Codable>(from urlString: String, completion: @escaping (Result<T,Error>) -> Void) {
         guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
