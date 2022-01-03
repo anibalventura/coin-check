@@ -16,24 +16,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch Screen" translatesAutoresizingMaskIntoConstraints="NO" id="qM2-pE-nKF">
-                                <rect key="frame" x="36.5" y="277.5" width="341" height="341"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coin Check" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFU-ej-cXK">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coin Check" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-Yh-RWb" userLabel="App Name">
                                 <rect key="frame" x="0.0" y="618.5" width="414" height="48"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" name="Title Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch Icon" translatesAutoresizingMaskIntoConstraints="NO" id="kBK-8b-4Mf">
+                                <rect key="frame" x="36.5" y="277.5" width="341" height="341"/>
+                            </imageView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" name="Background Color"/>
                         <constraints>
-                            <constraint firstItem="qM2-pE-nKF" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Dzo-9w-OM9"/>
-                            <constraint firstItem="qM2-pE-nKF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ZAT-km-IVj"/>
-                            <constraint firstItem="lFU-ej-cXK" firstAttribute="top" secondItem="qM2-pE-nKF" secondAttribute="bottom" id="amg-N1-84e"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lFU-ej-cXK" secondAttribute="trailing" id="cKc-cz-05b"/>
-                            <constraint firstItem="lFU-ej-cXK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fsm-mS-x7t"/>
+                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="trailing" secondItem="Bcu-3y-fUS" secondAttribute="trailing" id="4tp-FB-hPB"/>
+                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="86N-Uw-ueD"/>
+                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="top" secondItem="kBK-8b-4Mf" secondAttribute="bottom" id="CdU-jv-GSy"/>
+                            <constraint firstItem="kBK-8b-4Mf" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="k9u-hI-HIX"/>
+                            <constraint firstItem="kBK-8b-4Mf" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lcq-nM-lwB"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -43,7 +43,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Launch Screen" width="341" height="341"/>
+        <image name="Launch Icon" width="341" height="341"/>
         <namedColor name="Background Color">
             <color red="0.99599999189376831" green="0.96100002527236938" blue="0.88200002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
