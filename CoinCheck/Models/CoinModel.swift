@@ -9,11 +9,19 @@ import Foundation
 
 struct Coin {
     let rate: Double
+    let time: String
     
     var rateFormat: String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .currency
         return numberFormatter.string(from: NSNumber(value:self.rate))!
+    }
+    
+    var timeFormat: Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        return dateFormatter.date(from: self.time) ?? Date.now
     }
 }
 

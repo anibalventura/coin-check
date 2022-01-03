@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="22X-AU-pit">
-                                <rect key="frame" x="0.0" y="44" width="390" height="165"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="22X-AU-pit">
+                                <rect key="frame" x="0.0" y="44" width="390" height="188"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coin Check" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ac3-Hu-eak" userLabel="App Name">
                                         <rect key="frame" x="80" y="0.0" width="230" height="60"/>
@@ -31,7 +31,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzQ-Bs-Piy" userLabel="Coin View">
-                                        <rect key="frame" x="20" y="85" width="350" height="80"/>
+                                        <rect key="frame" x="20" y="75" width="350" height="80"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6hm-JK-TXb">
                                                 <rect key="frame" x="0.0" y="0.0" width="340" height="80"/>
@@ -76,7 +76,18 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last updated: 01/01/9999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtV-Xi-OE3" userLabel="Time">
+                                        <rect key="frame" x="0.0" y="170" width="390" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                        <color key="textColor" name="Title Color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="dtV-Xi-OE3" firstAttribute="leading" secondItem="22X-AU-pit" secondAttribute="leading" id="Hqi-pV-XUB"/>
+                                    <constraint firstItem="dtV-Xi-OE3" firstAttribute="top" secondItem="gzQ-Bs-Piy" secondAttribute="bottom" constant="15" id="PAe-Dd-WA3"/>
+                                    <constraint firstAttribute="trailing" secondItem="dtV-Xi-OE3" secondAttribute="trailing" id="PO9-xH-pUI"/>
+                                </constraints>
                             </stackView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOW-fp-hXg">
                                 <rect key="frame" x="0.0" y="594" width="390" height="216"/>
@@ -94,9 +105,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bitcoinCurrencyLabel" destination="7Fu-bE-BH7" id="slJ-eX-FsQ"/>
                         <outlet property="bitcoinLabel" destination="HTJ-9p-5Tu" id="2zO-am-8WD"/>
+                        <outlet property="currencyLabel" destination="7Fu-bE-BH7" id="slJ-eX-FsQ"/>
                         <outlet property="currencyPicker" destination="MOW-fp-hXg" id="7Lp-DU-ap5"/>
+                        <outlet property="lastUpdateLabel" destination="dtV-Xi-OE3" id="BiZ-yJ-8F7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

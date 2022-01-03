@@ -11,7 +11,8 @@ class CoinViewController: UIViewController {
     private var coinController: CoinController = CoinController()
     
     @IBOutlet weak var bitcoinLabel: UILabel!
-    @IBOutlet weak var bitcoinCurrencyLabel: UILabel!
+    @IBOutlet weak var currencyLabel: UILabel!
+    @IBOutlet weak var lastUpdateLabel: UILabel!
     @IBOutlet weak var currencyPicker: UIPickerView!
     
     override func viewDidLoad() {
@@ -42,7 +43,7 @@ extension CoinViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let currency = self.coinController.currencyArray[row]
         
-        self.bitcoinCurrencyLabel.text = currency
+        self.currencyLabel.text = currency
         self.coinController.fetchBitCoinPrice(for: currency)
     }
 }
@@ -53,6 +54,7 @@ extension CoinViewController: CoinControllerDelegate {
     func didUpdateCoin(_ coin: Coin) {
         DispatchQueue.main.async {
             self.bitcoinLabel.text = coin.rateFormat
+            self.lastUpdateLabel.text = "Last updated: \(coin.timeFormat)"
         }
     }
 
