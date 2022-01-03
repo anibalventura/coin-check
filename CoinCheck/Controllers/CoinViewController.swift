@@ -81,7 +81,7 @@ extension CoinViewController: CoinControllerDelegate {
         // Update UI.
         DispatchQueue.main.async {
             self.priceLabel.text = coin.rateFormat
-            self.lastUpdateLabel.text = "Last updated: \(coin.timeFormat)"
+            self.lastUpdateLabel.text = "Last update: \(coin.timeFormat)"
         }
     }
 
