@@ -94,6 +94,11 @@
                             <constraint firstItem="MOW-fp-hXg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sZL-9b-o3c"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bitcoinLabel" destination="HTJ-9p-5Tu" id="2zO-am-8WD"/>
+                        <outlet property="currencyLabel" destination="7Fu-bE-BH7" id="slJ-eX-FsQ"/>
+                        <outlet property="currencyPicker" destination="MOW-fp-hXg" id="7Lp-DU-ap5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -106,7 +111,7 @@
             <color red="0.99599999189376831" green="0.96100002527236938" blue="0.88200002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Icon Color">
-            <color red="0.99215686274509807" green="0.97254901960784312" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.99199998378753662" green="0.97299998998641968" blue="0.46299999952316284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Title Color">
             <color red="0.12800000607967377" green="0.43200001120567322" blue="0.48800000548362732" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
