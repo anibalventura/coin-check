@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  CoinCheck
+
+  Created by Anibal Ventura on 4/1/22.
+  
+*/
+
+/* When was the last time the price was updated. */
+"last-update %@" = "Last update: %@";
+
+/* Title of alert when there is a error. */
+"alert-title" = "Error fetching price!";
+
+/* Message of alert when there is a error. */
+"alert-message %@" = "%@ \nPlease try again later.";
+
+/* Button of alert when there is a error. */
+"alert-button" = "Ok";

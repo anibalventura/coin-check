@@ -1,0 +1,14 @@
+/* From what coin is the price checked. */
+"MOI-BB-789.text" = "De";
+
+/* To what currency is the coin converted. */
+"x9w-T7-SHr.text" = "a";
+
+/* When was the last time the price was updated. */
+"dtV-Xi-OE3.text" = "Ultima actualización: ...";
+
+/* Label to select coin. */
+"2Ek-ib-MYU.text" = "Moneda";
+
+/* Label to select currency. */
+"CDZ-Tx-ZgK.text" = "Divisa";

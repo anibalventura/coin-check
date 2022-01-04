@@ -86,21 +86,24 @@ extension CoinViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 
 extension CoinViewController: CoinControllerDelegate {
     func didUpdateCoin(_ coin: Coin) {
+        let time = "\(coin.timeFormat)"
         // Update UI.
         DispatchQueue.main.async {
             self.priceLabel.text = coin.rateFormat
-            self.lastUpdateLabel.text = "Last update: \(coin.timeFormat)"
+            self.lastUpdateLabel.text = Localizable.lastUpdate(time)
         }
     }
 
     func didFailWithError(_ error: Error) {
         DispatchQueue.main.async {
             let alert = UIAlertController(
-                title: "Error fetching price!",
-                message: error.localizedDescription + "\nPlease try again later.",
+                title: Localizable.alertTitle,
+                message: Localizable.alertMessage(error.localizedDescription),
                 preferredStyle: .alert
             )
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            alert.addAction(
+                UIAlertAction(title: Localizable.alertButton, style: .default)
+            )
             self.present(alert, animated: true, completion: nil)
         }
     }
