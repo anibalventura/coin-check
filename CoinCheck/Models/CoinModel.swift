@@ -14,6 +14,7 @@ struct Coin {
     var rateFormat: String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .currency
+        numberFormatter.currencySymbol = "$"
         return numberFormatter.string(from: NSNumber(value:self.rate))!
     }
     
