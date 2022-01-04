@@ -16,8 +16,8 @@ class CoinController {
     private let networkManager: NetworkManager = NetworkManager()
     var delegate: CoinControllerDelegate?
     
-    let coins = ["ADA", "AVAX", "BCH", "BNB", "BTC", "DOGE", "DOT", "ETH", "LUNA",  "LTC", "SOL", "USDC", "USDT", "XML", "XRP"]
-    let currencies = ["AUD", "BRL", "CAD", "CNY", "EUR", "GBP", "HKD", "IDR", "ILS", "INR", "JPY", "MXN", "NOK", "NZD", "PLN", "RON", "RUB", "SEK", "SGD", "USD", "ZAR"]
+    let coins: [String] = ["ADA", "AVAX", "BCH", "BNB", "BTC", "DOGE", "DOT", "ETH", "LUNA",  "LTC", "SOL", "USDC", "USDT", "XRP"]
+    let currencies: [String] = ["AUD", "BRL", "CAD", "CNY", "EUR", "GBP", "HKD", "IDR", "ILS", "INR", "JPY", "MXN", "NOK", "NZD", "PLN", "RON", "RUB", "SEK", "SGD", "USD", "ZAR"]
     
     func fetchPrice(for coin: String, in currency: String) {
         let url = "\(CoinAPI.baseURL)/\(coin)/\(currency)?apikey=\(CoinAPI.key)"
