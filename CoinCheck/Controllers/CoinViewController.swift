@@ -25,6 +25,14 @@ class CoinViewController: UIViewController {
         currencyPicker.dataSource = self
         currencyPicker.delegate = self
         coinController.delegate = self
+        
+        fetchDefaultPrice()
+    }
+    
+    private func fetchDefaultPrice() {
+        let coin = self.coinLabel.text!
+        let currency = self.currencyLabel.text!
+        coinController.fetchPrice(for: coin, in: currency)
     }
 }
 
@@ -86,6 +94,14 @@ extension CoinViewController: CoinControllerDelegate {
     }
 
     func didFailWithError(_ error: Error) {
-        print(error)
+        DispatchQueue.main.async {
+            let alert = UIAlertController(
+                title: "Error fetching price!",
+                message: error.localizedDescription + "\nPlease try again later.",
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
