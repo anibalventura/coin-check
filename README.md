@@ -25,7 +25,7 @@ Cryptocurrency price checker. The app fetch from [CoinAPI.io](https://www.coinap
 - Swift **5.5**
 - Xcode **13.2**
 
-## Build
+### Build
 
 1. Go to [CoinAPI.io](https://www.coinapi.io/) an get a free API key.
 
