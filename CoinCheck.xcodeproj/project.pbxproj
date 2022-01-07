@@ -51,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C51C82BB2788921400C6EC59 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C5D8667F278494E300793041 /* Localizable.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		C5E97722278338D9003DC639 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +83,7 @@
 				C5E97743278339BB003DC639 /* Views */,
 				C5E97745278339CE003DC639 /* Controllers */,
 				C5E97748278339FD003DC639 /* Network */,
+				C51C82BB2788921400C6EC59 /* Helpers */,
 				C5E97737278338DA003DC639 /* Assets.xcassets */,
 				C5E9773C278338DA003DC639 /* Info.plist */,
 			);
@@ -86,7 +95,6 @@
 			children = (
 				C5E9772E278338D9003DC639 /* AppDelegate.swift */,
 				C5E97730278338D9003DC639 /* SceneDelegate.swift */,
-				C5D8667F278494E300793041 /* Localizable.swift */,
 				C5D866852784954200793041 /* Localizable.strings */,
 			);
 			path = App;
