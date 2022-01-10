@@ -2,7 +2,7 @@
 //  NetworkManager.swift
 //  CoinCheck
 //
-//  Created by Anibal Ventura on 3/1/22.
+//  Created by Anibal Ventura on 4/1/22.
 //
 
 import Foundation
