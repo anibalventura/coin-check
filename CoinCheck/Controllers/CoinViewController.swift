@@ -8,14 +8,14 @@
 import UIKit
 
 class CoinViewController: UIViewController {
-    private var coinController: CoinController = CoinController()
-    
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var coinLabel: UILabel!
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var lastUpdateLabel: UILabel!
     @IBOutlet weak var coinPicker: UIPickerView!
     @IBOutlet weak var currencyPicker: UIPickerView!
+    
+    private var coinController: CoinController = CoinController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,20 +25,33 @@ class CoinViewController: UIViewController {
         currencyPicker.dataSource = self
         currencyPicker.delegate = self
         coinController.delegate = self
-        
-        fetchDefaultPrice()
+
+        loadDefaultViewValues()
+        coinController.fetchPrice(for: coinLabel.text!, in: currencyLabel.text!)
     }
     
-    private func fetchDefaultPrice() {
-        let coin = self.coinLabel.text!
-        let currency = self.currencyLabel.text!
-        coinController.fetchPrice(for: coin, in: currency)
+    private func loadDefaultViewValues() {
+        priceLabel.text = Prefs.get(type: String.self, forKey: Consts.Prefs.price) ?? "$ 0.00"
+        coinLabel.text = Prefs.get(type: String.self, forKey: Consts.Prefs.coin) ?? "BTC"
+        currencyLabel.text = Prefs.get(type: String.self, forKey: Consts.Prefs.currency)  ?? "USD"
+        lastUpdateLabel.text = Prefs.get(type: String.self, forKey: Consts.Prefs.lastUpdate) ?? Localizable.lastUpdate("...")
+        
+        coinPicker.selectRow(
+            coinController.coins.firstIndex(where: {$0 == self.coinLabel.text}) ?? 0,
+            inComponent: 0,
+            animated: true
+        )
+        currencyPicker.selectRow(
+            coinController.currencies.firstIndex(where: {$0 == self.currencyLabel.text}) ?? 0,
+            inComponent: 0,
+            animated: true
+        )
     }
 }
 
-// MARK: - UIPicker View Data and Delegate
+// MARK: - UIPickerView Data Source
 
-extension CoinViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+extension CoinViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1 // How many columns there are in the picker.
     }
@@ -66,7 +79,10 @@ extension CoinViewController: UIPickerViewDataSource, UIPickerViewDelegate {
             return ""
         }
     }
-    
+}
+
+// MARK: - UIPickerView Delegate
+extension CoinViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // Set label to picked item.
         if pickerView == self.coinPicker {
@@ -75,10 +91,15 @@ extension CoinViewController: UIPickerViewDataSource, UIPickerViewDelegate {
             self.currencyLabel.text = self.coinController.currencies[row]
         }
         
-        // Fetch price of selected items.
         let coin = self.coinLabel.text!
         let currency = self.currencyLabel.text!
+        
+        // Fetch price of selected items.
         self.coinController.fetchPrice(for: coin, in: currency)
+        
+        // Save selected items.
+        Prefs.set(value: coin, key: Consts.Prefs.coin)
+        Prefs.set(value: currency, key: Consts.Prefs.currency)
     }
 }
 
@@ -86,16 +107,27 @@ extension CoinViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 
 extension CoinViewController: CoinControllerDelegate {
     func didUpdateCoin(_ coin: Coin) {
-        let time = "\(coin.timeFormat)"
+        let price = coin.priceFormat
+        let time = Localizable.lastUpdate("\(coin.timeFormat)")
+        
         // Update UI.
         DispatchQueue.main.async {
-            self.priceLabel.text = coin.rateFormat
-            self.lastUpdateLabel.text = Localizable.lastUpdate(time)
+            self.priceLabel.text = price
+            self.lastUpdateLabel.text = time
         }
+        
+        // Save updated price.
+        Prefs.set(value: price, key: Consts.Prefs.price)
+        Prefs.set(value: time, key: Consts.Prefs.lastUpdate)
     }
 
     func didFailWithError(_ error: Error) {
         DispatchQueue.main.async {
+            // Update UI.
+            self.priceLabel.text = "$ 0.00"
+            self.lastUpdateLabel.text = Localizable.lastUpdate("...")
+            
+            // Show error alert.
             let alert = UIAlertController(
                 title: Localizable.alertTitle,
                 message: Localizable.alertMessage(error.localizedDescription),

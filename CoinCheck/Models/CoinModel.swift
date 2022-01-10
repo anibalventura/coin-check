@@ -8,14 +8,14 @@
 import Foundation
 
 struct Coin {
-    let rate: Double
+    let price: Double
     let time: String
     
-    var rateFormat: String {
+    var priceFormat: String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .currency
         numberFormatter.currencySymbol = "$"
-        return numberFormatter.string(from: NSNumber(value:self.rate))!
+        return numberFormatter.string(from: NSNumber(value:self.price))!
     }
     
     var timeFormat: Date {

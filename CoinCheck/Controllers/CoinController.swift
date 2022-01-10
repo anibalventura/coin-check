@@ -25,7 +25,7 @@ class CoinController {
         networkManager.fetchData(from: url) { (result: Result<CoinData,Error>) in
             switch result {
             case .success(let model):
-                let coin = Coin(rate: model.rate, time: model.time)
+                let coin = Coin(price: model.rate, time: model.time)
                 self.delegate?.didUpdateCoin(coin)
             case .failure(let error):
                 self.delegate?.didFailWithError(error)
