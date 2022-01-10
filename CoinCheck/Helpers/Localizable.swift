@@ -9,12 +9,12 @@ import Foundation
 
 struct Localizable {
     static func lastUpdate(_ time: String) -> String {
-        String(format: NSLocalizedString("last-update %@", comment: "When was the last time the price was updated."), time)
+        String(format: NSLocalizedString("last-update %@", comment: ""), time)
     }
-    
-    static let alertTitle: String = NSLocalizedString("alert-title", comment: "Title of alert when there is a error.")
+
+    static let alertTitle: String = NSLocalizedString("alert-title", comment: "")
     static func alertMessage(_ error: String) -> String {
-        String(format: NSLocalizedString("alert-message %@", comment: "Message of alert when there is a error."), error)
+        String(format: NSLocalizedString("alert-message %@", comment: ""), error)
     }
-    static let alertButton: String = NSLocalizedString("alert-button", comment: "Button of alert when there is a error.")
+    static let alertButton: String = NSLocalizedString("alert-button", comment: "")
 }
