@@ -19,11 +19,16 @@ Cryptocurrency price checker. The app fetch from [CoinAPI.io](https://www.coinap
 
 ## Development
 
-- UIKit
+- [UIKit](https://developer.apple.com/documentation/uikit)
 - MVC + Delegate
+- [CocoaPods](https://cocoapods.org)
 - Development Target **15.0**
 - Swift **5.5**
 - Xcode **13.2**
+
+### Dependencies
+
+- [SwiftLint](https://cocoapods.org/pods/SwiftLint)
 
 ### Build
 

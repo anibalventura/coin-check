@@ -7,22 +7,28 @@
 
 import Foundation
 
-protocol CoinControllerDelegate {
+protocol CoinControllerDelegate: AnyObject {
     func didUpdateCoin(_ coin: Coin)
     func didFailWithError(_ error: Error)
 }
 
 class CoinController {
     private let networkManager: NetworkManager = NetworkManager()
-    var delegate: CoinControllerDelegate?
-    
-    let coins: [String] = ["ADA", "AVAX", "BCH", "BNB", "BTC", "DOGE", "DOT", "ETH", "LUNA",  "LTC", "SOL", "USDC", "USDT", "XRP"]
-    let currencies: [String] = ["AUD", "BRL", "CAD", "CNY", "EUR", "GBP", "HKD", "IDR", "ILS", "INR", "JPY", "MXN", "NOK", "NZD", "PLN", "RON", "RUB", "SEK", "SGD", "USD", "ZAR"]
-    
+    weak var delegate: CoinControllerDelegate?
+
+    let coins: [String] = ["ADA", "AVAX", "BCH", "BNB", "BTC",
+                           "DOGE", "DOT", "ETH", "LUNA", "LTC",
+                           "SOL", "USDC", "USDT", "XRP"]
+    let currencies: [String] = ["AUD", "BRL", "CAD", "CNY", "EUR",
+                                "GBP", "HKD", "IDR", "ILS", "INR",
+                                "JPY", "MXN", "NOK", "NZD", "PLN",
+                                "RON", "RUB", "SEK", "SGD", "USD",
+                                "ZAR"]
+
     func fetchPrice(for coin: String, in currency: String) {
         let url = "\(CoinAPI.baseURL)/\(coin)/\(currency)?apikey=\(CoinAPI.key)"
-        
-        networkManager.fetchData(from: url) { (result: Result<CoinData,Error>) in
+
+        networkManager.fetchData(from: url) { (result: Result<CoinData, Error>) in
             switch result {
             case .success(let model):
                 let coin = Coin(price: model.rate, time: model.time)
