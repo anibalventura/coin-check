@@ -27,7 +27,11 @@ class CoinViewController: UIViewController {
         coinController.delegate = self
 
         loadDefaultViewValues()
-        coinController.fetchPrice(for: coinLabel.text!, in: currencyLabel.text!)
+        updateData()
+    }
+    
+    @IBAction func refreshButtonPressed(_ sender: Any) {
+        updateData()
     }
     
     private func loadDefaultViewValues() {
@@ -46,6 +50,10 @@ class CoinViewController: UIViewController {
             inComponent: 0,
             animated: true
         )
+    }
+    
+    private func updateData() {
+        coinController.fetchPrice(for: coinLabel.text!, in: currencyLabel.text!)
     }
 }
 
