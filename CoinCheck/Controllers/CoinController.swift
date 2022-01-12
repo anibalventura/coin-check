@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol CoinControllerDelegate: AnyObject {
     func didUpdateCoin(_ coin: Coin)
@@ -13,7 +14,6 @@ protocol CoinControllerDelegate: AnyObject {
 }
 
 class CoinController {
-    private let networkManager: NetworkManager = NetworkManager()
     weak var delegate: CoinControllerDelegate?
 
     let coins: [String] = ["ADA", "AVAX", "BCH", "BNB", "BTC",
@@ -26,12 +26,12 @@ class CoinController {
                                 "ZAR"]
 
     func fetchPrice(for coin: String, in currency: String) {
-        let url = "\(CoinAPI.baseURL)/\(coin)/\(currency)?apikey=\(CoinAPI.key)"
+        let url = "\(Consts.API.baseURL)/\(coin)/\(currency)?apikey=\(Consts.API.key)"
 
-        networkManager.fetchData(from: url) { (result: Result<CoinData, Error>) in
-            switch result {
-            case .success(let model):
-                let coin = Coin(price: model.rate, time: model.time)
+        AF.request(url).responseDecodable(of: CoinData.self) { response in
+            switch response.result {
+            case .success(let data):
+                let coin = Coin(price: data.rate, time: data.time)
                 self.delegate?.didUpdateCoin(coin)
             case .failure(let error):
                 self.delegate?.didFailWithError(error)

@@ -29,16 +29,17 @@ Cryptocurrency price checker. The app fetch from [CoinAPI.io](https://www.coinap
 ### Dependencies
 
 - [SwiftLint](https://cocoapods.org/pods/SwiftLint)
+- [Alamofire](https://cocoapods.org/pods/Alamofire)
 
 ### Build
 
 1. Go to [CoinAPI.io](https://www.coinapi.io/) an get a free API key.
 
-2. In `.../CoinCheck/Network/CoinAPI.swift` change the following line with your key.
+2. In `.../CoinCheck/Helpers/Constants.swift` change `key` value with your key.
 ```swift
-struct CoinAPI {
-    static let key: String = "YOUR_API_KEY_HERE"
+struct API {
     static let baseURL: String = "https://rest.coinapi.io/v1/exchangerate"
+    static let key: String = "YOUR_API_KEY_HERE"
 }
 ```
 

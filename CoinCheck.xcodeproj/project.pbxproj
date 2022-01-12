@@ -12,7 +12,6 @@
 		C5D866832784954200793041 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C5D866852784954200793041 /* Localizable.strings */; };
 		C5E1B7A3278CC71600B3039E /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E1B7A2278CC71600B3039E /* UserPreferences.swift */; };
 		C5E1B7A5278CD4B500B3039E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E1B7A4278CD4B500B3039E /* Constants.swift */; };
-		C5E1B7B4278CECF800B3039E /* CoinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E1B7B3278CECF800B3039E /* CoinAPI.swift */; };
 		C5E9772F278338D9003DC639 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E9772E278338D9003DC639 /* AppDelegate.swift */; };
 		C5E97731278338D9003DC639 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E97730278338D9003DC639 /* SceneDelegate.swift */; };
 		C5E97733278338D9003DC639 /* CoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E97732278338D9003DC639 /* CoinViewController.swift */; };
@@ -20,7 +19,6 @@
 		C5E97738278338DA003DC639 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5E97737278338DA003DC639 /* Assets.xcassets */; };
 		C5E97747278339F1003DC639 /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E97746278339F1003DC639 /* CoinModel.swift */; };
 		C5E9774C27833A7B003DC639 /* CoinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E9774B27833A7B003DC639 /* CoinController.swift */; };
-		C5E9774E27833CA4003DC639 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E9774D27833CA4003DC639 /* NetworkManager.swift */; };
 		F8BF11459CE80E9A3F4F6A67 /* Pods_CoinCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6635ECEB4124E9D5F8FBCACE /* Pods_CoinCheck.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +32,6 @@
 		C5D866862784954500793041 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C5E1B7A2278CC71600B3039E /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		C5E1B7A4278CD4B500B3039E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		C5E1B7B3278CECF800B3039E /* CoinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinAPI.swift; sourceTree = "<group>"; };
 		C5E9772B278338D9003DC639 /* CoinCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5E9772E278338D9003DC639 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5E97730278338D9003DC639 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,7 +41,6 @@
 		C5E9773C278338DA003DC639 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5E97746278339F1003DC639 /* CoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinModel.swift; sourceTree = "<group>"; };
 		C5E9774B27833A7B003DC639 /* CoinController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinController.swift; sourceTree = "<group>"; };
-		C5E9774D27833CA4003DC639 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		EEA431D2833701C895391D7C /* Pods-CoinCheck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinCheck.debug.xcconfig"; path = "Target Support Files/Pods-CoinCheck/Pods-CoinCheck.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,7 +99,6 @@
 				C5E97744278339C8003DC639 /* Models */,
 				C5E97743278339BB003DC639 /* Views */,
 				C5E97745278339CE003DC639 /* Controllers */,
-				C5E97748278339FD003DC639 /* Network */,
 				C51C82BB2788921400C6EC59 /* Helpers */,
 				C5E97737278338DA003DC639 /* Assets.xcassets */,
 				C5E9773C278338DA003DC639 /* Info.plist */,
@@ -147,15 +142,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		C5E97748278339FD003DC639 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				C5E9774D27833CA4003DC639 /* NetworkManager.swift */,
-				C5E1B7B3278CECF800B3039E /* CoinAPI.swift */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
 		E004BED2EA3C80D2AA97EF18 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +163,7 @@
 				C5E97728278338D9003DC639 /* Frameworks */,
 				C5E97729278338D9003DC639 /* Resources */,
 				C5E1B7A6278CE29E00B3039E /* SwiftLint */,
+				290A703AA2F42A6D101E87F1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -236,6 +223,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		290A703AA2F42A6D101E87F1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CoinCheck/Pods-CoinCheck-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CoinCheck/Pods-CoinCheck-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CoinCheck/Pods-CoinCheck-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		487E344D1CD9624549683EC7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -286,11 +290,9 @@
 				C5E9774C27833A7B003DC639 /* CoinController.swift in Sources */,
 				C5E97747278339F1003DC639 /* CoinModel.swift in Sources */,
 				C5E97733278338D9003DC639 /* CoinViewController.swift in Sources */,
-				C5E9774E27833CA4003DC639 /* NetworkManager.swift in Sources */,
 				C5E1B7A3278CC71600B3039E /* UserPreferences.swift in Sources */,
 				C5E1B7A5278CD4B500B3039E /* Constants.swift in Sources */,
 				C5E9772F278338D9003DC639 /* AppDelegate.swift in Sources */,
-				C5E1B7B4278CECF800B3039E /* CoinAPI.swift in Sources */,
 				C5D86680278494E300793041 /* Localizable.swift in Sources */,
 				C5E97731278338D9003DC639 /* SceneDelegate.swift in Sources */,
 			);

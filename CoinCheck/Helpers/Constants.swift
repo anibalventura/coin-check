@@ -14,4 +14,9 @@ struct Consts {
         static let currency: String = "CurrencyKey"
         static let lastUpdate: String = "LastUpdateKey"
     }
+
+    struct API {
+        static let baseURL: String = "https://rest.coinapi.io/v1/exchangerate"
+        static let key: String = "YOUR_API_KEY_HERE"
+    }
 }

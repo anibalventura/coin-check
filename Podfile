@@ -6,5 +6,6 @@ target 'CoinCheck' do
 
   # Pods for CoinCheck
   pod 'SwiftLint'
+  pod 'Alamofire'
 
 end
